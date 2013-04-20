@@ -41,11 +41,16 @@ In the configuration menu, you need to select the following options:
 
 Then proceed to build:
 
-     make -j x
+     $ make -j x
 
 ... where "x" is the number of CPU on your PC + 1.
 
-The first time you compile can take hours, since the toolchains is built first. Subsequent builds only take a few minutes.
+BONUS: if your don't know how many cores have your machine/s and hace nproc and bc commands you  
+can try whith:
+ 
+     $ make -j $(echo "`nproc` + 1" | bc)
+
+The first time you compile can take _hours_, since the toolchains is built first. Subsequent builds only take a few _minutes_.
 
 Then copy the the resulting image to your TFTP server root, so you can Flash it from the router's U-Boot bootloader:
 
